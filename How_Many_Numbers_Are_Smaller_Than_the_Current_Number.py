@@ -5,7 +5,6 @@ That is, for each nums[i] you have to count the number of valid j's such that j 
 Return the answer in an array.
 
 """
-from collections import Counter
 
 
 class SolutionBruteForce:
@@ -22,6 +21,7 @@ class SolutionBruteForce:
 
         return result
 
+
 class Solution:
     def smallerNumbersThanCurrent(self, nums):
 
@@ -32,16 +32,11 @@ class Solution:
         for index in range(len(sorted_arr)):
             if sorted_arr[index] not in num_dict:
                 num_dict[sorted_arr[index]] = index
-        
+
         for index in range(len(nums)):
             nums[index] = num_dict[nums[index]]
-        
+
         return nums
-
-
-        
-
-
 
 
 arr = [8, 1, 2, 2, 3]
