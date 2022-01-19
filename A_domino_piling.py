@@ -1,5 +1,4 @@
 
-
 def domino_piling(m, n):
 
     if m < 1 or n < 1:
@@ -15,7 +14,3 @@ def domino_piling(m, n):
     stones += (smaller_element - 1) / 2
 
     return int(stones)
-
-
-#m, n = list(map(int, input().split()))
-#print(domino_piling(m, n))
