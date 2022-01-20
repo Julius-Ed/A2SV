@@ -11,6 +11,21 @@ class Solution:
                 result.append(index)
 
         return result
+    
+    def targetIndicesN(self, nums, target):
+        
+        smaller_count = 0
+        equal_count = 0
+    
+        for num in nums:
+            if num < target:
+                smaller_count += 1
+            if num == target:
+                equal_count += 1
+        
+        result = [x for x in range(smaller_count, equal_count + smaller_count)]
+
+        return result
 
 
     def count_sort(self, arr):
@@ -44,4 +59,6 @@ class Solution:
 
 
 Sol = Solution()
-print(Sol.targetIndices([5, 1, 2, 4], 1))
+
+print(Sol.targetIndices([5, 1, 1, 2, 4], 1))
+print(Sol.targetIndicesN([5, 1, 1, 2, 4], 1))
