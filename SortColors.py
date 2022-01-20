@@ -1,8 +1,4 @@
 
-#n == nums.length
-#1 <= n <= 300
-# nums[i] is either 0, 1, or 2.
-
 class Solution:
     def sortColors(self, nums) -> None:
 
