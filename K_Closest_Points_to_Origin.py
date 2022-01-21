@@ -10,7 +10,7 @@ class Solution:
         distance_dictionary = {}
 
         for point in points:
-        
+
             distance = math.sqrt((point[0]**2) + (point[1] ** 2))
             if distance not in distance_dictionary:
                 distance_dictionary[distance] = [point]
