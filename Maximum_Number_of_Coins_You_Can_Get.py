@@ -24,7 +24,7 @@ class Solution:
 
 Sol = Solution()
 
-#piles = [9,8,7,6,5,1,2,3,4]
-#piles = [2,4,1,2,7,8]
+piles = [9,8,7,6,5,1,2,3,4]
+# piles = [2,4,1,2,7,8]
 
 print(Sol.maxCoins(piles))
