@@ -5,6 +5,7 @@ these integers in the array.
 Return the minimum size of the set so that at least half of the integers of the array are removed.
 """
 
+
 from collections import Counter
 import heapq
 
@@ -64,7 +65,7 @@ class Solution:
 
 
 # arr = [3,3,3,3,5,5,5,2,2,7] # -> 2
-# arr = [7, 7, 7, 7, 7, 7]  # -> 1
+arr = [7, 7, 7, 7, 7, 7]  # -> 1
 
 
 Sol = Solution()
