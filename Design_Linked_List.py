@@ -1,13 +1,10 @@
 
 class ListNode:
-
     def __init__(self, val=None, next=None) -> None:
         self.val = val
         self.next = next
 
-
 class MyLinkedList:
-
     def __init__(self):
         self.head = None
 
@@ -63,7 +60,6 @@ class MyLinkedList:
             self.addAtTail(val)
 
     # Delete the indexth node in the linked list, if the index is valid.
-
     def deleteAtIndex(self, index: int) -> None:
         if self.head and not self.head.next and index == 0:
             self.head = None
@@ -86,40 +82,3 @@ class MyLinkedList:
 
         if curr and (prev and not curr.next):
             prev.next = None
-
-    # helper method to traverse and print the entire linkedlist.
-    def traverse(self):
-        curr = self.head
-
-        while curr:
-            print(curr.val)
-            curr = curr.next
-        print("\n")
-
-
-Sol = MyLinkedList()
-Sol.traverse()
-Sol.addAtHead(1)
-Sol.traverse()
-Sol.addAtTail(3)
-Sol.traverse()
-Sol.addAtIndex(1, 2)
-Sol.traverse()
-Sol.get(1)
-Sol.traverse()
-Sol.deleteAtIndex(1)
-Sol.traverse()
-Sol.get(1)
-Sol.traverse()
-Sol.get(3)
-Sol.traverse()
-Sol.deleteAtIndex(3)
-Sol.traverse()
-Sol.deleteAtIndex(0)
-Sol.traverse()
-Sol.get(0)
-Sol.traverse()
-Sol.deleteAtIndex(0)
-Sol.traverse()
-print(Sol.get(0))
-Sol.traverse()
