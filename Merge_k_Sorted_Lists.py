@@ -15,8 +15,6 @@ class Solution:
         return lists[0]
         
 
-
-
     def merge_two_linked_lists(self, list_0, list_1):
 
         head = ListNode("dummy_head")
