@@ -48,25 +48,3 @@ class Solution:
                 current = current.next
         
         return dummy.next
-
-
-    
-
-
-
-Sol = Solution()
-
-head = ListNode(0)
-head.next = ListNode(-3)
-head.next.next = ListNode(-4)
-head.next.next.next = ListNode(1)
-head.next.next.next.next = ListNode(6)
-head.next.next.next.next.next = ListNode(-2)
-head.next.next.next.next.next.next = ListNode(-5)
-
-head = Sol.removeZeroSumSublists(head)
-
-print(" ")
-while head:
-    print(head.val)
-    head = head.next
