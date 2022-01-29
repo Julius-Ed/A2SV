@@ -7,10 +7,10 @@ class Solution:
 
     def reorderList(self, head) -> None:
 
-        if head is None:
+        if head is None or (head and head.next is None):
             return
-        elif head.next is None:
-            return
+        # elif head.next is None:
+        #     return
 
         prev_slow = None
         slow = head
@@ -83,7 +83,7 @@ class Solution:
 
             while right.next:
                 right_prev = right
-                right = right.next
+                right = right.nextr
             
         
 
