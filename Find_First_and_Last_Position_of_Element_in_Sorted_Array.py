@@ -35,13 +35,44 @@ class Solution:
                 
                 return [go_left, go_right]
 
-            
-
-
         return [-1, -1]
 
+class Solution2:
+    def searchRange(self, nums, target: int):
+        left = self.binSearch(nums, target, True)
+        right = self.binSearch(nums, target, False)
+
+        return [left, right]
+
+
+    def binSearch(self, nums, target, go_left):
+        left, right = 0, len(nums) - 1
+
+        i = -1
+
+        while left <= right:
+            mid = (left + right) // 2
+
+            if target > nums[mid]:
+                left = mid + 1
+            elif target < nums[mid]:
+                right = mid - 1
+
+            else: # hit target
+                i = mid
+                if go_left:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+        return i
+                    
+            
+
 Sol = Solution()
+Solt2 = Solution2()
+
 print(Sol.searchRange([], 4))
+print(Solt2.searchRange([1, 2, 2, 2, 2, 3, 4, 5], 2))
 
 
 """
