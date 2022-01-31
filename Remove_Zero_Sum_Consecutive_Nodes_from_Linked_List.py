@@ -5,9 +5,10 @@ class ListNode:
         self.val = val
         self.next = next
 
+
 class Solution:
     def removeZeroSumSublists(self, head):
-        
+
         sum_values = {}
         dummy = ListNode(0, head)
         prev = dummy
@@ -15,7 +16,7 @@ class Solution:
         sum = 0
 
         while current:
-            if current.val == 0: 
+            if current.val == 0:
                 prev.next = current.next
                 prev = dummy
                 current = prev.next
@@ -40,11 +41,11 @@ class Solution:
 
                 prev = dummy
                 current = prev.next
-            
+
             else:
                 sum_values[sum] = current
 
                 prev = current
                 current = current.next
-        
+
         return dummy.next
