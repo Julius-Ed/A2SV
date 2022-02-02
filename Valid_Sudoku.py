@@ -19,6 +19,7 @@ class Solution:
 
         return True
 
+    # checks row for row for repeating numbers.
     def check(self, board) -> bool:
 
         for row in board:
@@ -30,6 +31,7 @@ class Solution:
 
         return True
 
+    # checks, given the upper-left cell of a 3*3 field, for repeating numbers.
     def check_quadrants(self, board, start):
 
         i, j = start
@@ -46,6 +48,7 @@ class Solution:
                     set_of_values.remove(board[row_index][column_index])
         return True
 
+    # transposes a the matrix.
     def transpose(self, board):
 
         transposed_matrix = []
