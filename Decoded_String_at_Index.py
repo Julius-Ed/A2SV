@@ -2,29 +2,26 @@
 class Solution:
     def decodeAtIndex(self, s: str, k: int) -> str:
 
-        size = 0
-
+        wordLength = 0
         for symbol in s:
             if symbol.isdigit():
-                size *= int(symbol)
+                wordLength *= int(symbol)
             else:
-                size += 1
+                wordLength += 1
 
-        for symbol in reversed(s):
-
-            k = k % size
-
-            if k == 0 and symbol.isalpha():
-                return symbol
-
-            if symbol.isdigit():
-                size = size / int(symbol)
-
+        for symbolIndex in range(len(s) - 1, -1, -1):
+            if symbolIndex == (k - 1):
+                return s[symbolIndex]
+            
+            if s[symbolIndex].isdigit():
+                k = k % wordLength
+                wordLength = wordLength / int(s[symbolIndex])
             else:
-                size -= 1
+                wordLength -= 1
 
 
+    
 Sol = Solution()
 
 print(Sol.decodeAtIndex("leet2code3", k = 10))
-print(Sol.decodeAtIndex("a2345678999999999999999", k = 1))
+
