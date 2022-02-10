@@ -1,4 +1,5 @@
 from typing import List
+import heapq
 
 
 class Solution:
@@ -7,39 +8,25 @@ class Solution:
         longestSubarray = 1
         currentSubarrayLength = 1
 
-        minValueSubarray = nums[0]
-        maxValueSubarray = nums[0]
+        minHeap = heapq.heapify([nums[0]])
+        maxHeap = heapq.heapify((-1)*[nums[0]])
 
-        left = 0
-        right = 1
+        left = right = 0
 
         while right < len(nums):
+            
+            maxVal = heapq.heappop(maxHeap)# * (-1)
+            minVal = heapq.heappop(minHeap)
 
-            minValueSubarray = min(nums[right], minValueSubarray)
-            maxValueSubarray = max(nums[right], maxValueSubarray)
+            heapq.heappush(minHeap, nums[right])
+            heapq.heappush(maxHeap, (-1) * nums[right])
 
-            if abs(nums[right] - minValueSubarray) > limit or abs(nums[right] - maxValueSubarray) > limit:
-                left += 1
-                right = left + 1
-                currentSubarrayLength = 1
-                if right < len(nums):
-                    minValueSubarray = min(nums[left], nums[right])
-                    maxValueSubarray = max(nums[left], nums[right])
+            print(maxVal, minVal)
 
-            else:
-                currentSubarrayLength += 1
-                right += 1
-
-            if currentSubarrayLength > longestSubarray:
-                longestSubarray = currentSubarrayLength
-
-        return longestSubarray
-
-        def validRange(self, left, right, minValue, maxValue):
-            pass
+            right += 1
 
 
 Sol = Solution()
 print(Sol.longestSubarray([8, 2, 4, 7], 4) == 2)
-print(Sol.longestSubarray([10,1,2,4,7,2], 5) == 4)
+print(Sol.longestSubarray([10, 1, 2, 4, 7, 2], 5) == 4)
 print(Sol.longestSubarray([8], 10) == 1)

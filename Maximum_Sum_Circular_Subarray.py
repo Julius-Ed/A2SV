@@ -7,14 +7,14 @@ class Solution:
         maxSum = nums[0]
         allNegatives = True
 
-        for num_index in range(1, len(nums)):
-            if nums[num_index] > 0:
+        for numIndex in range(1, len(nums)):
+            if nums[numIndex] > 0:
                 allNegatives = False
 
             if preSum < 0:
-                preSum = nums[num_index]
+                preSum = nums[numIndex]
             else:
-                preSum += nums[num_index]
+                preSum += nums[numIndex]
 
             if preSum > maxSum:
                 maxSum = preSum
@@ -25,11 +25,11 @@ class Solution:
         preSum = nums[0]
         minSum = nums[0]
 
-        for num_index in range(1, len(nums)):
+        for numIndex in range(1, len(nums)):
             if preSum > 0:
-                preSum = nums[num_index]
+                preSum = nums[numIndex]
             else:
-                preSum += nums[num_index]
+                preSum += nums[numIndex]
 
             if preSum < minSum:
                 minSum = preSum
