@@ -45,5 +45,4 @@ print(Sol.maxSubarraySumCircular([1, -2, 3, -2]) == 3)
 print(Sol.maxSubarraySumCircular([-3, -2, -3]) == -2)
 print(Sol.maxSubarraySumCircular([1, -2, 2, 1]) == 4)
 print(Sol.maxSubarraySumCircular([-4]) == -4)
-
 print(Sol.maxSubarraySumCircular([1, -6, -7, 4]) == 5)

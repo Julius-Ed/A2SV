@@ -1,32 +1,47 @@
 from typing import List
-import heapq
+from collections import deque
 
 
 class Solution:
+
     def longestSubarray(self, nums: List[int], limit: int) -> int:
 
-        longestSubarray = 1
-        currentSubarrayLength = 1
+        minDequeue = deque()
+        maxDequeue = deque()
 
-        minHeap = heapq.heapify([nums[0]])
-        maxHeap = heapq.heapify((-1)*[nums[0]])
+        leftIndex = 0
+        rightIndex = 0
 
-        left = right = 0
+        longestSubstringCounter = 0
 
-        while right < len(nums):
-            
-            maxVal = heapq.heappop(maxHeap)# * (-1)
-            minVal = heapq.heappop(minHeap)
+        while rightIndex < len(nums):
 
-            heapq.heappush(minHeap, nums[right])
-            heapq.heappush(maxHeap, (-1) * nums[right])
+            while minDequeue and nums[rightIndex] <= nums[minDequeue[-1]]:
+                minDequeue.pop()
 
-            print(maxVal, minVal)
+            while maxDequeue and nums[rightIndex] >= nums[maxDequeue[-1]]:
+                maxDequeue.pop()
 
-            right += 1
+            minDequeue.append(rightIndex)
+            maxDequeue.append(rightIndex)
+
+            while nums[maxDequeue[0]] - nums[minDequeue[0]] > limit:
+
+                leftIndex += 1
+                if leftIndex > minDequeue[0]:
+                    minDequeue.popleft()
+                if leftIndex > maxDequeue[0]:
+                    maxDequeue.popleft()
+
+            longestSubstringCounter = max(
+                longestSubstringCounter, rightIndex - leftIndex + 1)
+            rightIndex += 1
+
+        return longestSubstringCounter
 
 
 Sol = Solution()
+
 print(Sol.longestSubarray([8, 2, 4, 7], 4) == 2)
 print(Sol.longestSubarray([10, 1, 2, 4, 7, 2], 5) == 4)
 print(Sol.longestSubarray([8], 10) == 1)
