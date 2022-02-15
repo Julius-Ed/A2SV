@@ -1,5 +1,3 @@
-from os import access
-from turtle import forward
 from typing import List
 
 
