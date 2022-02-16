@@ -1,6 +1,5 @@
 from collections import deque
 
-
 def activityNotifications(expenditure, d):
 
     result = 0
@@ -24,7 +23,6 @@ def activityNotifications(expenditure, d):
 
     return result
 
-
 def getMedian(countingSortArray, d):
 
     if d % 2 == 0:
@@ -36,20 +34,12 @@ def getMedian(countingSortArray, d):
 
     return median
 
-
 def getNthValue(countingSortArray, threshold):
 
-    cursor = -1
-    counter = 0
+    cursor, counter = -1, 0
 
     while counter < threshold and cursor < len(countingSortArray):
         cursor += 1
         counter += countingSortArray[cursor]
 
     return cursor
-
-
-print(activityNotifications([10, 20, 30, 40, 50], 3))
-print(activityNotifications([2, 3, 4, 2, 3, 6, 8, 4, 5], 5))
-
-print(activityNotifications([1, 2, 3, 4, 4], 4))
