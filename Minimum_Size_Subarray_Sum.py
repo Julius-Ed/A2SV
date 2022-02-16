@@ -20,10 +20,10 @@ class Solution:
 
         if result == float('inf'):
             return 0
-        
+
         return result
+
 
 Sol = Solution()
 print(Sol.minSubArrayLen(7, [2, 3, 1, 2, 4, 3]) == 2)
 print(Sol.minSubArrayLen(4, [1, 4, 4]) == 1)
-
