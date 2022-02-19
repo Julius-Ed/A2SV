@@ -19,7 +19,5 @@ class Solution:
         return s
 
 
-
-
 Sol = Solution()
 print(Sol.longestNiceSubstring("YazaAay"))
