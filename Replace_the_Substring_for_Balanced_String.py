@@ -20,7 +20,6 @@ class Solution:
         left, right = -1, 0
 
         while right < len(s):
-            
             currentWindow[self.charToInt(s[right])] += 1
 
             while self.validateWindow(targetWindow, currentWindow) and left < right:
@@ -33,7 +32,6 @@ class Solution:
         return res
 
     def validateWindow(self, targetWindow, currentWindow):
-
         for valTarget, valCurrent in zip(targetWindow, currentWindow):
             if valCurrent < valTarget:
                 return False
@@ -55,6 +53,4 @@ Sol = Solution()
 #print(Sol.balancedString("QWER") == 0)
 #print(Sol.balancedString("QQWE") == 1)
 #print(Sol.balancedString("QQQW") == 2)
-
-
-print(Sol.balancedString("WQWRQEQQWERQWWWEREWRQQWWWWQW") == 6)
+#print(Sol.balancedString("WQWRQEQQWERQWWWEREWRQQWWWWQW") == 6)
