@@ -1,7 +1,6 @@
 
 class Solution:
     def balancedString(self, s: str) -> int:
-
         charMap = [0] * 4
         targetWindow = [0] * 4
         currentWindow = [0] * 4
@@ -26,9 +25,9 @@ class Solution:
                 res = min(res, right - left)
                 left += 1
                 currentWindow[self.charToInt(s[left])] -= 1
-            
+
             right += 1
-        
+
         return res
 
     def validateWindow(self, targetWindow, currentWindow):
@@ -47,6 +46,7 @@ class Solution:
             return 2
         if c == "R":
             return 3
+
 
 Sol = Solution()
 #print(Sol.balancedString("WQWRQQQW") == 3)
