@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def maxTurbulenceSize(self, arr: List[int]) -> int:
 
@@ -9,16 +10,15 @@ class Solution:
         conv = []
 
         for index in range(len(arr) - 1):
-            
+
             if arr[index] > arr[index + 1]:
                 conv.append(1)
             elif arr[index] < arr[index + 1]:
                 conv.append(-1)
             else:
                 conv.append(0)
-        
+
         conv.append(0)
-        
 
         res = 2
         left, right = -1, 0
