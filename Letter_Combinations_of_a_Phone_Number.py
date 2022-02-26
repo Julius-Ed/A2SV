@@ -30,11 +30,12 @@ class Solution:
             first = digitStack.popleft()
             second = digitStack.popleft()
             if firstRound:
-                new = self.combine(digitDictionary[first], digitDictionary[second])
+                new = self.combine(
+                    digitDictionary[first], digitDictionary[second])
                 firstRound = False
             else:
                 new = self.combine(first, digitDictionary[second])
-    
+
             digitStack.appendleft(new)
 
         return digitStack[0]
@@ -48,7 +49,6 @@ class Solution:
                 res.append(charA + charB)
 
         return res
-
 
 Sol = Solution()
 print(Sol.letterCombinations("2"))
