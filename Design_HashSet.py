@@ -1,6 +1,5 @@
 
 class Node:
-
     def __init__(self, val, next=None) -> None:
         self.val = val
         self.next = next
@@ -24,7 +23,7 @@ class MyHashSet:
         while current:
             if current.val == key:
                 return
-    
+
             prev = current
             current = current.next
         prev.next = Node(key)
@@ -57,7 +56,7 @@ class MyHashSet:
         while current:
             if current.val == key:
                 return True
-            
+
             current = current.next
 
         return False
