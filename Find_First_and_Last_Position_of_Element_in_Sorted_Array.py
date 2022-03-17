@@ -1,6 +1,6 @@
 class Solution:
     def searchRange(self, nums, target: int):
-        
+
         low = 0
         high = len(nums) - 1
 
@@ -9,12 +9,11 @@ class Solution:
             mid = (high + low) // 2
 
             if mid > len(nums) - 1:
-    
+
                 return len(nums)
-        
+
             if mid < 0:
                 return -1
-
 
             if nums[mid] < target:
                 low = mid + 1
@@ -23,19 +22,20 @@ class Solution:
                 high = mid - 1
 
             else:
-                
+
                 go_left = mid
                 go_right = mid
 
                 while go_left > 0 and nums[go_left] == nums[go_left - 1]:
                     go_left -= 1
-                
+
                 while go_right < len(nums) - 1 and nums[go_right] == nums[go_right + 1]:
                     go_right += 1
-                
+
                 return [go_left, go_right]
 
         return [-1, -1]
+
 
 class Solution2:
     def searchRange(self, nums, target: int):
@@ -43,7 +43,6 @@ class Solution2:
         right = self.binSearch(nums, target, False)
 
         return [left, right]
-
 
     def binSearch(self, nums, target, go_left):
         left, right = 0, len(nums) - 1
@@ -58,15 +57,14 @@ class Solution2:
             elif target < nums[mid]:
                 right = mid - 1
 
-            else: # hit target
+            else:  # hit target
                 i = mid
                 if go_left:
                     right = mid - 1
                 else:
                     left = mid + 1
         return i
-                    
-            
+
 
 Sol = Solution()
 Solt2 = Solution2()
