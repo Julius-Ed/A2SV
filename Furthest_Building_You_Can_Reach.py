@@ -15,6 +15,7 @@ class Solution:
             if slope <= 0:
                 continue
 
+            # use bricks if possible.
             if slope <= bricks:
                 heapq.heappush(usedBricks, slope * (-1))
                 bricks -= slope
