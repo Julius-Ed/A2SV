@@ -1,5 +1,4 @@
-
-from typing import Optional, List
+from typing import Optional
 from collections import deque
 
 
@@ -10,9 +9,15 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# Given the root of a binary tree, check whether it is a 
+# mirror of itself (i.e., symmetric around its center).
 
 class Solution:
-    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+
+        return self.invertVals(root.left, True) == self.invertVals(root.right, False)
+
+    def invertVals(self, root, rev):
 
         if not root:
             return []
@@ -33,7 +38,7 @@ class Solution:
                 sameLevelVals = deque([])
 
             # if we are on an odd level, append from the left to reverse the nodes.
-            if level % 2 != 0:
+            if rev:
                 sameLevelVals.appendleft(curr.val)
             else:
                 sameLevelVals.append(curr.val)
@@ -51,17 +56,36 @@ class Solution:
         return res
 
 
-# root = TreeNode(3)
-# root.left = TreeNode(9)
-# root.right = TreeNode(20)
+# root = TreeNode(1)
+# root.left = TreeNode(2)
+# root.right = TreeNode(2)
 
-# root.right.left = TreeNode(15)
-# root.right.right = TreeNode(7)
+# root.left.left = TreeNode(3)
+# root.left.right = TreeNode(4)
 
+# root.right.left = TreeNode(4)
+# root.right.right = TreeNode(3)
 
 root = TreeNode(1)
 root.left = TreeNode(2)
-root.right = TreeNode(3)
+root.right = TreeNode(2)
+
+root.left.left = TreeNode(3)
+root.left.right = TreeNode(None)
+
+root.right.left = TreeNode(3)
+root.right.right = TreeNode(None)
+
+
 
 Sol = Solution()
-print(Sol.zigzagLevelOrder(root))
+print(Sol.isSymmetric(root))
+
+
+
+"""
+[1,2,2,3,4,4,3] -> True
+[1,2,2,null,3,null,3] -> False
+"""
+
+        
