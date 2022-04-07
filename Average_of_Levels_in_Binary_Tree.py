@@ -10,21 +10,24 @@ class TreeNode:
 
 
 class Solution:
+    # O(number of nodes in tree)
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
 
         res = []
 
         prevLevel, accLevel, nodeCountLevel = 0, 0, 0
 
+        # save nodes as tuples with node object on index 0 and level on index 1.
         q = deque([(root, 0)])
 
         while q:
-
             curr, level = q.popleft()
 
+            # calcualte average whenever we reach a new level.
             if level > prevLevel:
                 prevLevel += 1
 
+                # avoid devision by 0.
                 if accLevel == 0:
                     res.append(0)
                 else:
@@ -33,6 +36,7 @@ class Solution:
                 accLevel = curr.val
                 nodeCountLevel = 1
 
+            # update running sums if we don't reach a new level.
             else:
                 accLevel += curr.val
                 nodeCountLevel += 1
