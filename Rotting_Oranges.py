@@ -10,6 +10,7 @@ from collections import deque
 
 
 class Solution:
+    # O(n*m), constant space.
     def orangesRotting(self, grid: List[List[int]]) -> int:
 
         rows = len(grid)
