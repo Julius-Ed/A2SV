@@ -16,10 +16,13 @@ class Solution:
 
             currAmount, level = q.popleft()
 
+            # create a new node for new sums that can be created.
             for coin in coins:
                 newAmount = currAmount + coin
                 if newAmount == amount:
                     return level + 1
+
+                # don't reconsider sums that we've already seen.
                 elif newAmount < amount and newAmount not in visitedAmounts:
                     visitedAmounts.add(newAmount)
                     q.append((newAmount, level + 1))
