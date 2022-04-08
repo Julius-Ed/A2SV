@@ -9,8 +9,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# Given the root of a binary tree, check whether it is a 
-# mirror of itself (i.e., symmetric around its center).
 
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
@@ -37,17 +35,17 @@ class Solution:
                 prevLevel = level
                 sameLevelVals = deque([])
 
-            # if we are on an odd level, append from the left to reverse the nodes.
-            if rev:
+            if curr and rev:
                 sameLevelVals.appendleft(curr.val)
-            else:
+            elif curr:
                 sameLevelVals.append(curr.val)
+            elif rev:
+                sameLevelVals.appendleft(None)
+            else:
+                sameLevelVals.append(None)
 
-            # add left and right children to the queue.
-            if curr.left:
+            if curr:
                 q.append((curr.left, level + 1))
-
-            if curr.right:
                 q.append((curr.right, level + 1))
 
         # note that same Level has remaining values not included in the result mass.
@@ -70,22 +68,10 @@ root = TreeNode(1)
 root.left = TreeNode(2)
 root.right = TreeNode(2)
 
-root.left.left = TreeNode(3)
-root.left.right = TreeNode(None)
 
-root.right.left = TreeNode(3)
-root.right.right = TreeNode(None)
-
+root.left.right = TreeNode(3)
+root.right.right = TreeNode(3)
 
 
 Sol = Solution()
 print(Sol.isSymmetric(root))
-
-
-
-"""
-[1,2,2,3,4,4,3] -> True
-[1,2,2,null,3,null,3] -> False
-"""
-
-        

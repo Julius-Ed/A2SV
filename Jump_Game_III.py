@@ -17,7 +17,9 @@ class Solution:
             childLeft, childRight = current + \
                 arr[current], current - arr[current]
 
-            print(arr)
+            if arr[current] == 0:
+                return True
+
             # mark visited indices by turning their corresponding values to -1.
             arr[current] = -1
 
@@ -28,12 +30,7 @@ class Solution:
             if 0 <= childRight < len(arr) and arr[childRight] != -1:
                 q.append(childRight)
 
-        # loop through array and check if any zeros have not been visited.
-        for num in arr:
-            if num == 0:
-                return False
-
-        return True
+        return False
 
 
 Sol = Solution()
