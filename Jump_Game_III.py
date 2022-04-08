@@ -17,6 +17,7 @@ class Solution:
             childLeft, childRight = current + \
                 arr[current], current - arr[current]
 
+            print(arr)
             # mark visited indices by turning their corresponding values to -1.
             arr[current] = -1
 
@@ -36,8 +37,11 @@ class Solution:
 
 
 Sol = Solution()
-print(Sol.canReach([4, 2, 3, 0, 3, 1, 2], 5))
-print(Sol.canReach([4, 2, 3, 0, 3, 1, 2], 0))
-print(Sol.canReach([3, 0, 2, 1, 2], 2))
-print(Sol.canReach([5], 0))
-print(Sol.canReach([0, 0], 0))
+# print(Sol.canReach([4, 2, 3, 0, 3, 1, 2], 5))
+# print(Sol.canReach([4, 2, 3, 0, 3, 1, 2], 0))
+# print(Sol.canReach([3, 0, 2, 1, 2], 2))
+# print(Sol.canReach([5], 0))
+# print(Sol.canReach([0, 0], 0))
+
+
+print(Sol.canReach([0, 3, 0, 6, 3, 3, 4], 6))  # expected: true
