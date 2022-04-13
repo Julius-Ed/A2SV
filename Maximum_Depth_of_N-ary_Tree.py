@@ -33,5 +33,3 @@ class Solution:
 
 
 Sol = Solution()
-
-root = Node(1, [])
