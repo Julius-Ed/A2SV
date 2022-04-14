@@ -52,7 +52,6 @@ class Solution:
 
 Sol = Solution()
 
-
 root = TreeNode(6)
 # root.left = TreeNode(7)
 # root.right = TreeNode(8)
