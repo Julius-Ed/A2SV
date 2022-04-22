@@ -1,8 +1,6 @@
 class Solution:
     def findKthNumber(self, m: int, n: int, k: int) -> int:
 
-        minVal, maxVal = 1, m*n
-
         def count(x):
 
             total = 0
