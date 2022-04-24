@@ -53,7 +53,6 @@ class Solution:
 numCourses = 5
 prerequisites = [
     [0, 1],
-    [1, 0],
     [0, 2],
     [1, 3],
     [1, 4],
