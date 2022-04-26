@@ -24,9 +24,6 @@ class Solution:
                 if board[x][y] == 3:
                     board[x][y] = 1
 
-        for row in board:
-            print(row)
-
     def getEightNeighbours(self, board, parent):
 
         a, b = parent
